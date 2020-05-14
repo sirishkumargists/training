@@ -5,6 +5,7 @@
 #include <hello.h>
 #include <string>
 #include <iostream>
+#include <picojson/picojson.h>
 
 using Poco::Timer;
 using Poco::TimerCallback;
@@ -35,6 +36,14 @@ int main(int argc, char** argv){
     std::cout << std::boolalpha << boost::regex_match(s2, expr) << '\n';
 
     hello();
+
+    std::string json = "[ \"hello JSON\" ]";
+    picojson::value v;
+    std::string err = picojson::parse(v, json);
+    if (! err.empty()) {
+	    std::cerr << err << std::endl;
+    }	  
+    std::cout << v << std::endl;
 
     return 0;
 }

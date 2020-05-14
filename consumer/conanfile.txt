@@ -2,6 +2,7 @@
 boost/1.72.0
 poco/1.9.4
 hello/0.1@user/testing
+picojson/0.1@user/testing
 
 [generators]
 cmake
